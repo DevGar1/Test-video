@@ -50,7 +50,7 @@ export class App {
   }
 
   createLight() {
-    const light = new DirectionalLight("red");
+    const light = new DirectionalLight("blue");
     light.position.set(0, 0, 0).normalize();
     this.mainScene.add(light);
   }

@@ -1,3 +1,4 @@
+import { SpotLight } from "three";
 import {
   DoubleSide,
   Mesh,
@@ -32,9 +33,9 @@ export class Ground extends Mesh {
   }
   addVideo(texture) {
     const mapDB = new TextureLoader();
-    mapDB.crossOrigin = "";
+    mapDB.crossOrigin = "anonymous";
     mapDB.load(
-      "https://www.w3schools.com/html/mov_bbb.mp4",
+      "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4",
       (textureMap) => {
         this.material = MeshLambertMaterial({
           color: "white",
@@ -45,9 +46,11 @@ export class Ground extends Mesh {
       () => console.log("loading"),
       (e) => {
         console.log("error");
-        this.material = new MeshLambertMaterial({
+        this.material = new MeshBasicMaterial({
           map: texture,
           color: "white",
+          side: DoubleSide,
+          lightMap: new SpotLight("green"),
         });
       }
     );
