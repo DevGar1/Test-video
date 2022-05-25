@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "webpack serve --open --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
+    "build": "webpack --config  webpack.prod.js",
     "start": "http-server dist",
     "lint": "eslint --ignore-path .gitignore . --ext .js,.html",
     "lint:fix": "npm run lint -- --fix",

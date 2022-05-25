@@ -50,8 +50,8 @@ export class App {
   }
 
   createLight() {
-    const light = new DirectionalLight("white");
-    light.position.set(0.5, 1, 1).normalize();
+    const light = new DirectionalLight("red");
+    light.position.set(0, 0, 0).normalize();
     this.mainScene.add(light);
   }
 

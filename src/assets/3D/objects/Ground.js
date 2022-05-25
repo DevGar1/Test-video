@@ -11,7 +11,7 @@ export class Ground extends Mesh {
   constructor() {
     super(
       new PlaneGeometry(70, 70, 10),
-      new MeshBasicMaterial({ color: 0x282828 })
+      new MeshBasicMaterial({ color: "red" })
     );
     // const texture = new TextureLoader().load(
     //   `https://cdn.pixabay.com/photo/2022/05/16/19/14/road-7201023_960_720.jpg`
@@ -32,13 +32,22 @@ export class Ground extends Mesh {
   }
   addVideo(texture) {
     const mapDB = new TextureLoader();
+    mapDB.crossOrigin = "";
     mapDB.load(
-      "https://tekeye.uk/html/images/Joren_Falls_Izu_Jap.mp4",
+      "https://www.w3schools.com/html/mov_bbb.mp4",
       (textureMap) => {
         this.material = MeshLambertMaterial({
           color: "white",
           map: textureMap,
           side: DoubleSide,
+        });
+      },
+      () => console.log("loading"),
+      (e) => {
+        console.log("error");
+        this.material = new MeshLambertMaterial({
+          map: texture,
+          color: "white",
         });
       }
     );
